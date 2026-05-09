@@ -1,3 +1,4 @@
 import os
 
-url = os.getenv("APP_BASE_URL")
+LOGIN = os.getenv("LOGIN")
+PASSWORD = os.getenv("PASSWORD")

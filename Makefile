@@ -8,7 +8,7 @@ install:
 # 	uv run gendiff files/file1.json files/file2.json
 
 test:
-	uv run pytest
+	uv run pytest -v -s
 
 # test-coverage:
 # 	uv run pytest --cov=gendiff --cov-report xml
