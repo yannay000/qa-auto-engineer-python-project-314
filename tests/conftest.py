@@ -1,9 +1,17 @@
 import pytest
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 
 
 @pytest.fixture
-def browser():
-    driver = webdriver.Chrome()
+def driver():
+    # driver = webdriver.Chrome()
+    opts = Options()
+    opts.add_argument("--window-size=1366,768")
+    opts.add_argument("--disable-notifications")
+    opts.add_argument("--lang=ru-RU")
+    # opts.add_argument("--headless=new")
+    driver = webdriver.Chrome(options=opts)
+
     yield driver
     driver.quit()

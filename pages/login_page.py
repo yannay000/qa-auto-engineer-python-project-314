@@ -7,11 +7,11 @@ from pages.locators.login_locators import LoginLocators
 class LoginPage(BasePage):
     URL = os.getenv("APP_BASE_URL")
 
-    def open(self):
+    def open(self) -> None:
         """Открывает страницу логина"""
         self.driver.get(self.URL)
 
-    def login(self, username, password):
+    def login(self, username: str, password: str) -> None:
         """Авторизация"""
         self.type(LoginLocators.USERNAME, username)
         self.type(LoginLocators.PASSWORD, password)
