@@ -5,7 +5,7 @@ from pages.user_create_page import CreateUserPage
 from pages.users_page import UsersPage
 from steps.login_steps import LoginSteps
 from steps.users_steps import UsersSteps
-from utils.generate_user import generate_user_params
+from utils.data_generator import generate_user_params
 
 
 def test_create_user(driver: WebDriver) -> None:

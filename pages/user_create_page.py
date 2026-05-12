@@ -14,7 +14,7 @@ class CreateUserPage(BasePage):
         self.visible(SecondHeaderLocators.CREATED)
 
     def is_opened(self) -> bool:
-        """Проверяет, открыта ли страница пользователей"""
+        """Проверяет, открыта ли страница создания пользователя"""
         return self.driver.current_url.endswith("/users/create")
 
     def get_user_email_text(self) -> str:
