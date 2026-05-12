@@ -1,8 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class StatusCreateLocators:
+class LabelCreateLocators:
     """Все селекторы страницы создания статуса"""
 
     NAME = (By.CSS_SELECTOR, '[name="name"]')
-    SLUG = (By.CSS_SELECTOR, '[name="slug"]')

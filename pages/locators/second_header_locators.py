@@ -8,3 +8,4 @@ class SecondHeaderLocators:
     CREATED = (By.XPATH, '//div[text()="Element created"]')
     DELETE = (By.CSS_SELECTOR, '[aria-label="Delete"]')
     DELETED = (By.XPATH, '//div[text()="Element deleted"]')
+    SAVE = (By.CSS_SELECTOR, '[aria-label="Save"]')

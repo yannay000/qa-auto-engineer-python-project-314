@@ -18,7 +18,7 @@ class UsersPage(BasePage):
         return self.visible((By.XPATH, f'//span[text()="{email}"]'))
 
     def get_users(self):
-        return self.find_elements(*UsersLocators.USERS_TRS)
+        return self.find_elements(*UsersLocators.ENTITIES_TRS)
 
     def get_users_count(self) -> int:
         return len(self.get_users()) - 1

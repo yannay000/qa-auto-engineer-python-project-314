@@ -12,3 +12,8 @@ def generate_status_params() -> tuple:
     name = f"Status Name {status_number}"
     slug = f"status_name_{status_number}"
     return name, slug
+
+def generate_label_params() -> str:
+    label_number = random.randint(1, 1000000)
+    name = f"label_name_{label_number}"
+    return name

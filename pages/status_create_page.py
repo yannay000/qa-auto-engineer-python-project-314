@@ -9,7 +9,7 @@ class CreateStatusPage(BasePage):
         """Создание статуса"""
         self.type(StatusCreateLocators.NAME, name)
         self.type(StatusCreateLocators.SLUG, slug)
-        self.click(StatusCreateLocators.SAVE)
+        self.click(SecondHeaderLocators.SAVE)
         self.visible(SecondHeaderLocators.CREATED)
 
     def is_opened(self) -> bool:

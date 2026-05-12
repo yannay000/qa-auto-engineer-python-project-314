@@ -18,7 +18,7 @@ class StatusesPage(BasePage):
         return self.visible((By.XPATH, f'//span[text()="{name}"]'))
 
     def get_statuses(self):
-        return self.find_elements(*StatusesLocators.STATUSES_TRS)
+        return self.find_elements(*StatusesLocators.ENTITIES_TRS)
 
     def get_statuses_count(self) -> int:
         return len(self.get_statuses()) - 1

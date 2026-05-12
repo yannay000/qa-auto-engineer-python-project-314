@@ -9,3 +9,6 @@ class LeftMenuPage(BasePage):
 
 	def open_statuses_page(self) -> None:
 		self.click(LeftMenuLocators.STATUSES)
+
+	def open_labels_page(self) -> None:
+		self.click(LeftMenuLocators.LABELS)

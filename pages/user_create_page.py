@@ -10,7 +10,7 @@ class CreateUserPage(BasePage):
         self.type(UserCreateLocators.EMAIL, email)
         self.type(UserCreateLocators.FIRST_NAME, first_name)
         self.type(UserCreateLocators.LAST_NAME, last_name)
-        self.click(UserCreateLocators.SAVE)
+        self.click(SecondHeaderLocators.SAVE)
         self.visible(SecondHeaderLocators.CREATED)
 
     def is_opened(self) -> bool:
