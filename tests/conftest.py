@@ -1,10 +1,13 @@
+from typing import Generator
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.remote.webdriver import WebDriver
 
 
 @pytest.fixture
-def driver():
+def driver() -> Generator[WebDriver, None, None]:
     # driver = webdriver.Chrome()
     opts = Options()
     opts.add_argument("--window-size=1366,768")

@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class UserCreatetLocators:
+class UserCreateLocators:
     """Все селекторы страницы создания пользователя"""
 
     EMAIL = (By.CSS_SELECTOR, '[name="email"]')
