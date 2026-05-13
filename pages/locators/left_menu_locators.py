@@ -7,3 +7,4 @@ class LeftMenuLocators:
     USERS = (By.CSS_SELECTOR, '[href="#/users"]')
     STATUSES = (By.CSS_SELECTOR, '[href="#/task_statuses"]')
     LABELS = (By.CSS_SELECTOR, '[href="#/labels"]')
+    TASKS = (By.CSS_SELECTOR, '[href="#/tasks"]')

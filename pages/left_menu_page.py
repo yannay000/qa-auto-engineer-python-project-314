@@ -12,3 +12,6 @@ class LeftMenuPage(BasePage):
 
 	def open_labels_page(self) -> None:
 		self.click(LeftMenuLocators.LABELS)
+
+	def open_tasks_page(self) -> None:
+		self.click(LeftMenuLocators.TASKS)

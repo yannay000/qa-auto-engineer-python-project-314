@@ -7,3 +7,5 @@ class EntitiesLocators:
     ENTITIES_TRS = (By.CLASS_NAME, 'RaDatagrid-row')
     SPAN = (By.TAG_NAME, "span")
     CHECKBOXES = (By.CSS_SELECTOR, '[type="checkbox"]')
+    PARENT = (By.XPATH, "..")
+    PRECEDING_SIBLING = (By.XPATH, "preceding-sibling::*[1]")
