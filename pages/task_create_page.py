@@ -12,6 +12,7 @@ class CreateTaskPage(BasePage):
         # self.click(TaskCreateLocators.ASSIGNEE)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         self.type(TaskCreateLocators.TITLE, title)
+        self.click(SecondHeaderLocators.SAVE)
         self.click(TaskCreateLocators.STATUS)
         self.click((By.XPATH, f'//li[text()="{status}"]'))
         self.click(SecondHeaderLocators.SAVE)
