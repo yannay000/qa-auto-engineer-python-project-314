@@ -23,6 +23,6 @@ jobs:
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
         env:
-          APP_BASE_URL: ${{ var.APP_BASE_URL}}
-          LOGIN: ${{ var.LOGIN}}
-          PASSWORD: ${{ var.PASSWORD}}
+          APP_BASE_URL: ${{ vars.APP_BASE_URL}}
+          LOGIN: ${{ vars.LOGIN}}
+          PASSWORD: ${{ vars.PASSWORD}}
