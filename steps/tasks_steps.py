@@ -18,9 +18,9 @@ class TasksSteps:
 
     def check_assignee_filter(self) -> None:
         # assignee = "jane@gmail.com"
-        assignee, as_count = self.tasks_page.get_assignee_from_list()
+        assignee = self.tasks_page.get_assignee_from_list()
         self.task_page = TaskPage(self.driver)
-        filtered_tasks_count = self.tasks_page.filter_by_assignee(assignee, as_count)
+        filtered_tasks_count = self.tasks_page.filter_by_assignee(assignee)
         # assert filtered_tasks_count > 0, "Not enough tasks after filtering"
         for i in range(filtered_tasks_count):
             task = self.tasks_page.get_tasks()[i]

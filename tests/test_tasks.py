@@ -46,7 +46,7 @@ def test_tasks_filter(driver: WebDriver) -> None:
     tasks_steps.check_status_filter()
 
 
-def test_edit_task(driver: WebDriver) -> None:
+def test_edit_task_full(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)
     login_steps.login()
 
@@ -58,6 +58,7 @@ def test_edit_task(driver: WebDriver) -> None:
 
     task_create_page = CreateTaskPage(driver)
     test_task = generate_task_params()
+    test_task[0] = tasks_steps.tasks_page.get_assignee_from_list()
     task_create_page.edit_task(*test_task)
 
     left_menu_page = LeftMenuPage(driver)

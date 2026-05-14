@@ -18,9 +18,9 @@ def generate_label_params() -> str:
     name = f"label_name_{label_number}"
     return name
 
-def generate_task_params() -> str:
+def generate_task_params() -> list:
     task_number = random.randint(1, 1000000)
     assignee = "john@google.com"
     title = f"Title {task_number}"    
     status = "Draft"
-    return assignee, title, status
+    return [assignee, title, status]

@@ -32,7 +32,7 @@ class CreateTaskPage(BasePage):
 
     def edit_task(self, assignee: str, title: str, status: str) -> None:
         """Редактирование задачи"""
-        self.click(TaskCreateLocators.ASSIGNEE)
+        # self.click(TaskCreateLocators.ASSIGNEE)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         self.clear(TaskCreateLocators.TITLE)
         self.type(TaskCreateLocators.TITLE, title)
