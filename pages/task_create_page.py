@@ -29,3 +29,26 @@ class CreateTaskPage(BasePage):
 
     def get_task_status_text(self) -> str:
         return self.value_of(TaskCreateLocators.STATUS)
+
+    def edit_task(self, assignee: str, title: str, status: str) -> None:
+        """Редактирование задачи"""
+        self.click(TaskCreateLocators.ASSIGNEE)
+        self.click((By.XPATH, f'//li[text()="{assignee}"]'))
+        self.clear(TaskCreateLocators.TITLE)
+        self.type(TaskCreateLocators.TITLE, title)
+        self.click(TaskCreateLocators.STATUS)
+        self.click((By.XPATH, f'//li[text()="{status}"]'))
+        self.click(SecondHeaderLocators.SAVE)
+        self.visible(SecondHeaderLocators.UPDATED)
+
+    def edit_task_status(self, status: str = "Published") -> str:
+        """Редактирование статуса задачи"""
+        title = self.value_of(TaskCreateLocators.TITLE)
+        self.click(TaskCreateLocators.STATUS)
+        self.click((By.XPATH, f'//li[text()="{status}"]'))
+        self.click(SecondHeaderLocators.SAVE)
+        self.visible(SecondHeaderLocators.UPDATED)
+        return title
+
+    def delete_task(self) -> None:
+        self.click(SecondHeaderLocators.DELETE)

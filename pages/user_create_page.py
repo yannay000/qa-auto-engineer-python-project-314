@@ -25,3 +25,20 @@ class CreateUserPage(BasePage):
 
     def get_user_last_name_text(self) -> str:
         return self.value_of(UserCreateLocators.LAST_NAME)
+
+    def validate_email(self) -> None:
+        self.type(UserCreateLocators.EMAIL, "test_test@")
+        self.click(SecondHeaderLocators.SAVE)
+        self.visible(UserCreateLocators.INCORRECT_EMAIL)
+        self.visible(SecondHeaderLocators.NOT_VALID_FORM)
+        
+    def edit_user(self, email: str, first_name: str, last_name: str) -> None:
+        """Изменение пользователя"""
+        self.clear(UserCreateLocators.EMAIL)
+        self.type(UserCreateLocators.EMAIL, email)
+        self.clear(UserCreateLocators.FIRST_NAME)
+        self.type(UserCreateLocators.FIRST_NAME, first_name)
+        self.clear(UserCreateLocators.LAST_NAME)
+        self.type(UserCreateLocators.LAST_NAME, last_name)
+        self.click(SecondHeaderLocators.SAVE)
+        self.visible(SecondHeaderLocators.UPDATED)

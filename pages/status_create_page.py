@@ -21,3 +21,12 @@ class CreateStatusPage(BasePage):
 
     def get_status_slug_text(self) -> str:
         return self.value_of(StatusCreateLocators.SLUG)
+
+    def edit_status(self, name: str, slug: str) -> None:
+        """Изменение статуса"""
+        self.clear(StatusCreateLocators.NAME)
+        self.type(StatusCreateLocators.NAME, name)
+        self.clear(StatusCreateLocators.SLUG)
+        self.type(StatusCreateLocators.SLUG, slug)
+        self.click(SecondHeaderLocators.SAVE)
+        self.visible(SecondHeaderLocators.UPDATED)

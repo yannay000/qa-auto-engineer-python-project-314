@@ -14,10 +14,12 @@ class TasksPage(BasePage):
 
     def is_opened(self) -> bool:
         """Проверяет, открыта ли страница задач"""
+        self.visible(TasksLocators.DRAFT_HEADER)
         return self.driver.current_url.endswith("/tasks")
 
     def task_exists(self, title: str):
-        return self.visible((By.XPATH, f'//div[text()="{title}"]'))
+        return self.visible((By.XPATH, f'//div[text()="{title}"]')).find_element(
+            *TasksLocators.PARENT).find_element(*TasksLocators.PARENT)
 
     def get_tasks(self):
         return self.find_elements(*TasksLocators.CARDS_ROOT)
@@ -28,6 +30,7 @@ class TasksPage(BasePage):
     def show_task(self, task) -> None:
         task.find_element(*TasksLocators.CARD_ACTIONS).find_element(
 			*TasksLocators.SHOW).click()
+        self.visible(SecondHeaderLocators.SAVE)
         # self.find_element(task, *TasksLocators.CARD_ACTIONS).find_element(
         #     *TasksLocators.SHOW).click()
 
@@ -68,3 +71,7 @@ class TasksPage(BasePage):
                 return tasks
             time.sleep(1)
         return
+
+    def edit_task(self, task) -> None:
+        task.find_element(*TasksLocators.CARD_ACTIONS).find_element(
+            *TasksLocators.EDIT).click()

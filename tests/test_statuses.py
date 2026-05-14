@@ -55,6 +55,14 @@ def test_edit_status(driver: WebDriver) -> None:
     assert status_create_page.get_status_slug_text() == status_params[
         1], "Incorrect status slug"
 
+    test_status = generate_status_params()
+    status_create_page.edit_status(*test_status)
+
+    left_menu_page = LeftMenuPage(driver)
+    left_menu_page.open_statuses_page()
+    assert statuses_steps.statuses_page.is_opened(), "Statuses page is not opened"
+    statuses_steps.statuses_page.status_exists(test_status[0])
+
 
 def test_delete_one_status(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)

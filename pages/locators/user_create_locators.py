@@ -7,3 +7,4 @@ class UserCreateLocators:
     EMAIL = (By.CSS_SELECTOR, '[name="email"]')
     FIRST_NAME = (By.CSS_SELECTOR, '[name="firstName"]')
     LAST_NAME = (By.CSS_SELECTOR, '[name="lastName"]')
+    INCORRECT_EMAIL = (By.XPATH, '//p[text()="Incorrect email format"]')

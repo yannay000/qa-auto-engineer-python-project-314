@@ -9,3 +9,5 @@ class SecondHeaderLocators:
     DELETE = (By.CSS_SELECTOR, '[aria-label="Delete"]')
     DELETED = (By.XPATH, '//div[text()="Element deleted"]')
     SAVE = (By.CSS_SELECTOR, '[aria-label="Save"]')
+    UPDATED = (By.XPATH, '//div[text()="Element updated"]')
+    NOT_VALID_FORM = (By.XPATH, '//div[text()="The form is not valid. Please check for errors"]')

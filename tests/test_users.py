@@ -57,6 +57,16 @@ def test_edit_user(driver: WebDriver) -> None:
     assert user_create_page.get_user_last_name_text() == user_params[
         2], "Incorrect user last name"
 
+    user_create_page.validate_email()
+
+    test_user = generate_user_params()
+    user_create_page.edit_user(*test_user)
+
+    left_menu_page = LeftMenuPage(driver)
+    left_menu_page.open_users_page()
+    assert users_steps.users_page.is_opened(), "Users page is not opened"
+    users_steps.users_page.user_exists(test_user[0])
+
 
 def test_delete_one_user(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)

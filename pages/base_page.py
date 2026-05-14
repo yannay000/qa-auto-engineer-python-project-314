@@ -1,3 +1,4 @@
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.remote.webdriver import WebDriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -16,6 +17,13 @@ class BasePage:
         """Ожидание кликабельности и клик"""
         el = self.wait.until(EC.element_to_be_clickable(locator))
         el.click()
+
+    def clear(self, locator) -> None:
+        """Очистка формы ввода"""
+        el = self.wait.until(EC.element_to_be_clickable(locator))
+        # el.clear()
+        el.send_keys(Keys.COMMAND, "a")   # на macOS вместо CONTROL используют Keys.COMMAND
+        el.send_keys(Keys.DELETE)
 
     def type(self, locator, text: str) -> None:
         """Очистка и ввод текста"""

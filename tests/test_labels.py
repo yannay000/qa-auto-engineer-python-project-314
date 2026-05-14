@@ -52,6 +52,14 @@ def test_edit_label(driver: WebDriver) -> None:
 
     assert label_create_page.get_label_name_text() == label_params, "Incorrect label name"
 
+    test_label = generate_label_params()
+    label_create_page.edit_label(test_label)
+
+    left_menu_page = LeftMenuPage(driver)
+    left_menu_page.open_labels_page()
+    assert labels_steps.labels_page.is_opened(), "Labels page is not opened"
+    labels_steps.labels_page.label_exists(test_label)
+
 
 def test_delete_one_label(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)

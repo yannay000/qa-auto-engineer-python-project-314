@@ -45,10 +45,62 @@ def test_tasks_filter(driver: WebDriver) -> None:
 
     tasks_steps.check_status_filter()
 
+
 def test_edit_task(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)
     login_steps.login()
 
     tasks_steps = TasksSteps(driver)
     tasks_steps.open_tasks()
-    
+
+    task = tasks_steps.tasks_page.get_tasks()[4]
+    tasks_steps.tasks_page.edit_task(task)
+
+    task_create_page = CreateTaskPage(driver)
+    test_task = generate_task_params()
+    task_create_page.edit_task(*test_task)
+
+    left_menu_page = LeftMenuPage(driver)
+    left_menu_page.open_tasks_page()
+    assert tasks_steps.tasks_page.is_opened(), "Tasks page is not opened"
+    tasks_steps.tasks_page.task_exists(test_task[1])
+
+
+def test_edit_task_status(driver: WebDriver) -> None:
+    login_steps = LoginSteps(driver)
+    login_steps.login()
+
+    tasks_steps = TasksSteps(driver)
+    tasks_steps.open_tasks()
+
+    task = tasks_steps.tasks_page.get_tasks()[0]
+    tasks_steps.tasks_page.edit_task(task)
+
+    status = "Published"
+    task_create_page = CreateTaskPage(driver)
+    title = task_create_page.edit_task_status(status)
+
+    left_menu_page = LeftMenuPage(driver)
+    left_menu_page.open_tasks_page()
+    assert tasks_steps.tasks_page.is_opened(), "Tasks page is not opened"
+    task = tasks_steps.tasks_page.task_exists(title)
+    assert tasks_steps.tasks_page.get_task_status(task) == status, "Task status not changed"
+
+
+def test_delete_one_task(driver: WebDriver) -> None:
+    login_steps = LoginSteps(driver)
+    login_steps.login()
+
+    tasks_steps = TasksSteps(driver)
+    tasks_steps.open_tasks()
+
+    tasks_count = tasks_steps.tasks_page.get_tasks_count()
+    tasks_steps.tasks_page.show_task(tasks_steps.tasks_page.get_tasks()[0])
+
+    task_create_page = CreateTaskPage(driver)
+    task_create_page.delete_task()
+
+    left_menu_page = LeftMenuPage(driver)
+    left_menu_page.open_tasks_page()
+    assert tasks_steps.tasks_page.is_opened(), "Tasks page is not opened"
+    assert tasks_steps.tasks_page.get_tasks_count() == tasks_count - 1, "Task wasn't deleted"

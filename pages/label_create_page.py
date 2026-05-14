@@ -17,3 +17,10 @@ class CreateLabelPage(BasePage):
 
     def get_label_name_text(self) -> str:
         return self.value_of(LabelCreateLocators.NAME)
+
+    def edit_label(self, name: str) -> None:
+        """Изменение лейбла"""
+        self.clear(LabelCreateLocators.NAME)
+        self.type(LabelCreateLocators.NAME, name)
+        self.click(SecondHeaderLocators.SAVE)
+        self.visible(SecondHeaderLocators.UPDATED)
