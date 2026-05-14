@@ -40,8 +40,11 @@ class TasksPage(BasePage):
 
     def get_assignee_from_list(self, number: int = 3) -> str:
         self.click(TasksLocators.ASSIGNEE_FILTER)
-        assignee = self.find_elements(*TasksLocators.FILTER_VALUES)
-        return assignee[number].text
+        assignees = self.find_elements(*TasksLocators.FILTER_VALUES)
+        for assignee in assignees:
+            if assignee and assignee.text != "":
+                return assignee.text
+        return ""
 
     def filter_by_assignee(self, assignee: str) -> int:
         # self.click(TasksLocators.ASSIGNEE_FILTER)
