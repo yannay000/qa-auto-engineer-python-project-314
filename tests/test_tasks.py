@@ -22,6 +22,7 @@ def test_create_task(driver: WebDriver) -> None:
     assert task_create_page.is_opened(), "Task create page is not opened"
 
     test_task = generate_task_params()
+    test_task[0] = tasks_page.get_assignee_from_list()
     task_create_page.create_task(*test_task)
 
     left_menu_page.open_tasks_page()

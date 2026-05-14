@@ -5,7 +5,7 @@ install:
 	uv sync
 
 test:
-	uv run pytest -v -s --alluredir=allure-results
+	uv run pytest -v -s
 
 lint:
 	uv run ruff check --fix pages tests

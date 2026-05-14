@@ -9,7 +9,7 @@ class CreateTaskPage(BasePage):
 
     def create_task(self, assignee: str, title: str, status: str) -> None:
         """Создание задачи"""
-        self.click(TaskCreateLocators.ASSIGNEE)
+        # self.click(TaskCreateLocators.ASSIGNEE)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         self.type(TaskCreateLocators.TITLE, title)
         self.click(TaskCreateLocators.STATUS)
