@@ -22,3 +22,5 @@ jobs:
         uses: hexlet/project-action@release
         with:
           hexlet-id: ${{ secrets.HEXLET_ID }}
+        env:
+          APP_BASE_URL: ${{ secrets.APP_BASE_URL}}
