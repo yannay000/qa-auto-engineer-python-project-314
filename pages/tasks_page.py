@@ -36,10 +36,14 @@ class TasksPage(BasePage):
 
     def clear_filters(self) -> None:
         self.click(TasksLocators.ADD_FILTER)
-        self.click(TasksLocators.REMOVE_FILTERS)	
+        self.click(TasksLocators.REMOVE_FILTERS)
+
+    def get_assignee_from_list(self, number: int = 1) -> str:
+        self.click(TasksLocators.ASSIGNEE_FILTER)
+        return self.find_elements(*TasksLocators.FILTER_VALUES)[number].text
 
     def filter_by_assignee(self, assignee: str) -> int:
-        self.click(TasksLocators.ASSIGNEE_FILTER)
+        # self.click(TasksLocators.ASSIGNEE_FILTER)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         for _i in range(10):
             tasks_count = self.get_tasks_count()

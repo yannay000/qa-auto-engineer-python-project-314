@@ -17,3 +17,4 @@ class TasksLocators(EntitiesLocators):
     ADD_FILTER = (By.CSS_SELECTOR, '[aria-label="Add filter"]')
     REMOVE_FILTERS = (By.XPATH, '//span[text()="Remove all filters"]')
     DRAFT_HEADER = (By.XPATH, '//h6[text()="Draft"]')
+    FILTER_VALUES = (By.CSS_SELECTOR, '[role="option"]')
