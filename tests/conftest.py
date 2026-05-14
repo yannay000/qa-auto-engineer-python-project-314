@@ -16,6 +16,7 @@ def driver() -> Generator[WebDriver, None, None]:
     opts.add_argument("--headless=new")
     opts.add_argument("--no-sandbox")            # нужно в Docker
     opts.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--remote-allow-origins=*") 
     driver = webdriver.Chrome(options=opts)
 
     yield driver
