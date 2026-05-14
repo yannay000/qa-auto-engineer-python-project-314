@@ -1,7 +1,8 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 
-from pages.left_menu_page import LeftMenuPage
 from pages.labels_page import LabelsPage
+from pages.left_menu_page import LeftMenuPage
+
 
 class LabelsSteps:
     """Действия, доступные на для лейблов"""

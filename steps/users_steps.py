@@ -3,6 +3,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from pages.left_menu_page import LeftMenuPage
 from pages.users_page import UsersPage
 
+
 class UsersSteps:
     """Действия, доступные на странице логина"""
 

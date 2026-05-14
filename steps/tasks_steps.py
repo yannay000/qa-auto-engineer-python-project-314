@@ -1,8 +1,9 @@
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from pages.left_menu_page import LeftMenuPage
-from pages.tasks_page import TasksPage
 from pages.task_page import TaskPage
+from pages.tasks_page import TasksPage
+
 
 class TasksSteps:
     """Действия, доступные для задач"""

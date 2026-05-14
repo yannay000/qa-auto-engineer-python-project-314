@@ -4,6 +4,7 @@ from config import LOGIN, PASSWORD
 from pages.header_page import HeaderPage
 from pages.login_page import LoginPage
 
+
 class LoginSteps:
     """Действия, доступные на странице логина"""
 

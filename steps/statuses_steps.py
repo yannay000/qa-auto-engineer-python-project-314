@@ -3,6 +3,7 @@ from selenium.webdriver.remote.webdriver import WebDriver
 from pages.left_menu_page import LeftMenuPage
 from pages.statuses_page import StatusesPage
 
+
 class StatusesSteps:
     """Действия, доступные на для статусов"""
 
