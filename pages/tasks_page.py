@@ -38,7 +38,7 @@ class TasksPage(BasePage):
         self.click(TasksLocators.ADD_FILTER)
         self.click(TasksLocators.REMOVE_FILTERS)
 
-    def get_assignee_from_list(self, number: int = 1) -> str:
+    def get_assignee_from_list(self, number: int = 3) -> str:
         self.click(TasksLocators.ASSIGNEE_FILTER)
         assignee = self.find_elements(*TasksLocators.FILTER_VALUES)
         return assignee[number].text, len(assignee)
