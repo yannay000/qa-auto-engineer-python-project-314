@@ -1,6 +1,5 @@
 import os
 
-
 IMPLEMENTATION = os.getenv("IMPLEMENTATION")
 if IMPLEMENTATION: 
 	os.environ['APP_BASE_URL'] = f"http://{IMPLEMENTATION}.test" 

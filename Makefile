@@ -8,7 +8,7 @@ test:
 	uv run pytest -v -s
 
 lint:
-	uv run ruff check --fix pages tests steps utils
+	uv run ruff check --fix pages tests steps utils config.py
 
 check: test lint
 
