@@ -12,6 +12,7 @@ class StatusesPage(BasePage):
 
     def is_opened(self) -> bool:
         """Проверяет, открыта ли страница пользователей"""
+        self.visible(StatusesLocators.NAME_HEADER)
         return self.driver.current_url.endswith("/task_statuses")
 
     def status_exists(self, name: str):

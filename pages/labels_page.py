@@ -12,6 +12,7 @@ class LabelsPage(BasePage):
 
     def is_opened(self) -> bool:
         """Проверяет, открыта ли страница лейблов"""
+        self.visible(LabelsLocators.NAME_HEADER)
         return self.driver.current_url.endswith("/labels")
 
     def label_exists(self, name: str):

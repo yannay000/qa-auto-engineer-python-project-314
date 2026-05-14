@@ -12,6 +12,7 @@ class UsersPage(BasePage):
 
     def is_opened(self) -> bool:
         """Проверяет, открыта ли страница пользователей"""
+        self.visible(UsersLocators.EMAIL_HEADER)
         return self.driver.current_url.endswith("/users")
 
     def user_exists(self, email: str):
