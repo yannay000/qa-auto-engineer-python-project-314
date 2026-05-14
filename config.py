@@ -1,4 +1,6 @@
 import os
 
-LOGIN = os.getenv("LOGIN")
-PASSWORD = os.getenv("PASSWORD")
+os.environ['APP_BASE_URL'] = os.getenv("APP_BASE_URL", "http://localhost:5173")
+
+LOGIN = os.getenv("LOGIN", "test")
+PASSWORD = os.getenv("PASSWORD", "test")
