@@ -12,4 +12,5 @@ class UsersLocators(EntitiesLocators):
     EMAIL_COLUMN = (By.CLASS_NAME, 'column-email')
     FIRST_NAME_COLUMN = (By.CLASS_NAME, 'column-firstName')
     LAST_NAME_COLUMN = (By.CLASS_NAME, 'column-lastName')
+    NO_USERS = (By.XPATH, '//p[text()="No Users yet."]')
 	

@@ -10,3 +10,4 @@ class StatusesLocators(EntitiesLocators):
     SLUG_HEADER = (By.CSS_SELECTOR, '[data-field="slug"]')
     NAME_COLUMN = (By.CLASS_NAME, 'column-name')
     SLUG_COLUMN = (By.CLASS_NAME, 'column-slug')
+    NO_STATUSES = (By.XPATH, '//p[text()="No Task statuses yet."]')

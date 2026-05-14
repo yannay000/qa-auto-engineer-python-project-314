@@ -54,5 +54,6 @@ class UsersPage(BasePage):
     def delete_all_users(self) -> int:
         self.get_checkboxes()[0].click()
         self.click(SecondHeaderLocators.DELETE)
+        self.visible(UsersLocators.NO_USERS)
         return self.get_users_count()
 

@@ -50,4 +50,5 @@ class StatusesPage(BasePage):
     def delete_all_statuses(self) -> int:
         self.get_checkboxes()[0].click()
         self.click(SecondHeaderLocators.DELETE)
+        self.visible(StatusesLocators.NO_STATUSES)
         return self.get_statuses_count()
