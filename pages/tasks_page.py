@@ -40,9 +40,10 @@ class TasksPage(BasePage):
 
     def get_assignee_from_list(self, number: int = 1) -> str:
         self.click(TasksLocators.ASSIGNEE_FILTER)
-        return self.find_elements(*TasksLocators.FILTER_VALUES)[number].text
+        assignee = self.find_elements(*TasksLocators.FILTER_VALUES)
+        return assignee[number].text, len(assignee)
 
-    def filter_by_assignee(self, assignee: str) -> int:
+    def filter_by_assignee(self, assignee: str, as_count: int) -> int:
         # self.click(TasksLocators.ASSIGNEE_FILTER)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         for _i in range(10):
