@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from pages.left_menu_page import LeftMenuPage
@@ -41,6 +42,7 @@ def test_users_list(driver: WebDriver) -> None:
     users_steps.users_page.table_headers_visible()
 
 
+@pytest.mark.flaky
 def test_edit_user(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)
     login_steps.login()

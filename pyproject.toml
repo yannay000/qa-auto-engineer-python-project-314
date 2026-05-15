@@ -25,3 +25,6 @@ dev = [
 env_files = [
     ".env",
 ]
+markers = [
+    "flaky: flaky tests",
+]

@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from pages.label_create_page import CreateLabelPage
@@ -41,6 +42,7 @@ def test_labels_list(driver: WebDriver) -> None:
     labels_steps.labels_page.table_headers_visible()
 
 
+@pytest.mark.flaky
 def test_edit_label(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)
     login_steps.login()

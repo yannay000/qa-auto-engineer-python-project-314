@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.remote.webdriver import WebDriver
 
 from pages.left_menu_page import LeftMenuPage
@@ -47,6 +48,7 @@ def test_tasks_filter(driver: WebDriver) -> None:
     tasks_steps.check_status_filter()
 
 
+@pytest.mark.flaky
 def test_edit_task_full(driver: WebDriver) -> None:
     login_steps = LoginSteps(driver)
     login_steps.login()
