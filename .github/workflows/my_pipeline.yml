@@ -1,0 +1,35 @@
+name: My Pipeline
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.14'
+      - name: Install dependencies
+        run: |
+          pip install --only-binary :all: uv
+          make install
+      - name: Run linter and pytest
+        run: |
+          make check
+      # - name: Run test coverage
+      #   run: |
+      #     make test-coverage
+      - name: SonarQubeScan
+        uses: SonarSource/sonarqube-scan-action@v7
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=yannay000_qa-auto-engineer-python-project-314
+            -Dsonar.organization=yannay000
+            -Dsonar.coverage.exclusions=tests/**
+            -Dsonar.exclusions=tests/**

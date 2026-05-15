@@ -49,9 +49,6 @@ class BasePage:
 
     def find_elements(self, by_type, locator: str):
         return self.driver.find_elements(by_type, locator)
-        # return self.wait.until(
-        #     EC.presence_of_all_elements_located((by_type, locator))
-        # )
 
     def find_element(self, parent, by_type, locator: str):
         return WebDriverWait(parent, 10).until(

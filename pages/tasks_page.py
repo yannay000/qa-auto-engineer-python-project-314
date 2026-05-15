@@ -31,8 +31,6 @@ class TasksPage(BasePage):
         task.find_element(*TasksLocators.CARD_ACTIONS).find_element(
 			*TasksLocators.SHOW).click()
         self.visible(SecondHeaderLocators.SAVE)
-        # self.find_element(task, *TasksLocators.CARD_ACTIONS).find_element(
-        #     *TasksLocators.SHOW).click()
 
     def clear_filters(self) -> None:
         self.click(TasksLocators.ADD_FILTER)
@@ -47,7 +45,6 @@ class TasksPage(BasePage):
         return ""
 
     def filter_by_assignee(self, assignee: str) -> int:
-        # self.click(TasksLocators.ASSIGNEE_FILTER)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         for _i in range(10):
             tasks_count = self.get_tasks_count()

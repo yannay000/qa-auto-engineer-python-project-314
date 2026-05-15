@@ -18,18 +18,14 @@ class TasksSteps:
         assert self.tasks_page.is_opened(), "Tasks page is not opened"
 
     def check_assignee_filter(self) -> None:
-        # assignee = "jane@gmail.com"
         assignee = self.tasks_page.get_assignee_from_list()
         self.task_page = TaskPage(self.driver)
         filtered_tasks_count = self.tasks_page.filter_by_assignee(assignee)
-        # assert filtered_tasks_count > 0, "Not enough tasks after filtering"
         for i in range(filtered_tasks_count):
             task = self.tasks_page.get_tasks()[i]
             self.tasks_page.show_task(task)
             assert self.task_page.get_task_assignee() == assignee, "Incorrect filtered task assignee"
             self.driver.back()
-            # self.left_menu_page.open_tasks_page()
-            # assert self.tasks_page.is_opened(), "Tasks page is not opened"
         self.tasks_page.clear_filters()
 
     def check_label_filter(self) -> None:

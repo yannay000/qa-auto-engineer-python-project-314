@@ -9,7 +9,6 @@ class CreateTaskPage(BasePage):
 
     def create_task(self, assignee: str, title: str, status: str) -> None:
         """Создание задачи"""
-        # self.click(TaskCreateLocators.ASSIGNEE)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         self.type(TaskCreateLocators.TITLE, title)
         self.click(SecondHeaderLocators.SAVE)
@@ -33,7 +32,6 @@ class CreateTaskPage(BasePage):
 
     def edit_task(self, assignee: str, title: str, status: str) -> None:
         """Редактирование задачи"""
-        # self.click(TaskCreateLocators.ASSIGNEE)
         self.click((By.XPATH, f'//li[text()="{assignee}"]'))
         self.clear(TaskCreateLocators.TITLE)
         self.type(TaskCreateLocators.TITLE, title)

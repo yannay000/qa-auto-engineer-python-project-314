@@ -7,6 +7,9 @@ install:
 test:
 	uv run pytest -v -s
 
+test-coverage:
+	uv run pytest --cov=steps --cov-report xml
+
 lint:
 	uv run ruff check --fix pages tests steps utils config.py
 
