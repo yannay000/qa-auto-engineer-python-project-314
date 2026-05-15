@@ -5,6 +5,6 @@ print(f"IMPLEMENTATION: {IMPLEMENTATION}")
 if IMPLEMENTATION: 
 	os.environ['APP_BASE_URL'] = f"http://{IMPLEMENTATION}.test"
 else:
-	os.environ['APP_BASE_URL'] = f"http://right.test"
+	os.environ['APP_BASE_URL'] = "http://right.test"
 LOGIN = os.getenv("LOGIN", "test")
 PASSWORD = os.getenv("PASSWORD", "test")
