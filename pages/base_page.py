@@ -10,7 +10,7 @@ class BasePage:
     """Базовый класс со стандартными действиями"""
     def __init__(self, driver: WebDriver) -> None:
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(driver, 30)
 
     def open(self, url: str) -> None:
         self.driver.get(url)
