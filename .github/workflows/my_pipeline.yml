@@ -20,9 +20,9 @@ jobs:
       - name: Run linter and pytest
         run: |
           make lint
-      # - name: Run test coverage
-      #   run: |
-      #     make test-coverage
+      - name: Run test coverage
+        run: |
+          make test-coverage
       - name: SonarQubeScan
         uses: SonarSource/sonarqube-scan-action@v7
         env:
@@ -31,5 +31,6 @@ jobs:
           args: >
             -Dsonar.projectKey=yannay000_qa-auto-engineer-python-project-314
             -Dsonar.organization=yannay000
+            -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.coverage.exclusions=tests/**
             -Dsonar.exclusions=tests/**
