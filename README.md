@@ -19,7 +19,6 @@
 Selenium tests for kanban board
 
 ### Links
-
 This project was built using these tools:
 
 | Tool                                                                   | Description                                             |
